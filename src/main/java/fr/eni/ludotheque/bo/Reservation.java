@@ -32,7 +32,7 @@ public class Reservation {
 	private Integer id;
 	
 	@Column(nullable = false)
-	private Date rue;
+	private Date date_reservation;
 	
     @ManyToOne 
     @JoinColumn(name="client_id", nullable=false)

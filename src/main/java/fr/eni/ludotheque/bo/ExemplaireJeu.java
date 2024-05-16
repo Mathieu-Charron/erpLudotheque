@@ -48,4 +48,8 @@ public class ExemplaireJeu {
     @ManyToOne
     @JoinColumn(name="modele_jeu_id", nullable=false)
     private ModeleJeu modele_jeu;
+    
+    @ManyToOne 
+    @JoinColumn(name="reservation_id", nullable=true)
+    private Reservation reservation;
 }

@@ -43,6 +43,8 @@ public class Client extends Utilisateur {
 	private Adresse adresse;
 	
 	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, targetEntity=Reservation.class, mappedBy="client" )
-//    @JoinColumn(name = "adresse_id", referencedColumnName = "id")
 	private List<Reservation> reservations = new ArrayList<>();
+	
+	@OneToMany(cascade = {CascadeType.PERSIST}, targetEntity=Reservation.class, mappedBy="client")
+	private List<Location> locations = new ArrayList<>();
 }
