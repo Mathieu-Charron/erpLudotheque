@@ -38,7 +38,8 @@ public class Location {
 	@Column(nullable = false)
 	private Boolean est_paye;
 
-	@ManyToMany(mappedBy = "locations")
+	@ManyToMany()
+	@Builder.Default
 	private List<ExemplaireJeu> exemplaires_jeux = new ArrayList<>();
 	
     @ManyToOne 

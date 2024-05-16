@@ -32,6 +32,7 @@ public class Genre {
 	@Column(length = 50, nullable = false)
 	private String libelle;
 	
-	@ManyToMany(mappedBy = "genre")
+	@ManyToMany(mappedBy = "genres")
+	@Builder.Default
 	private List<ModeleJeu> model_jeu = new ArrayList<>();
 }

@@ -39,12 +39,13 @@ public class ModeleJeu {
 	@Column(nullable = false)
 	private Float prix_location;
 	
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @ManyToMany()
     @JoinTable(name = "model_jeu_genre",
         joinColumns = @JoinColumn(name = "model_jeu_id"),
         inverseJoinColumns = @JoinColumn(name = "genre_id"))
-	private List<Genre> genre = new ArrayList<>();
+	private List<Genre> genres = new ArrayList<>();
     
     @OneToMany(mappedBy="modele_jeu")
+    @Builder.Default
     private List<ExemplaireJeu> exemplaires_jeux = new ArrayList<>(); 
 }

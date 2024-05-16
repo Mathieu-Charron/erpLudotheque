@@ -39,11 +39,12 @@ public class ExemplaireJeu {
 	@Column(nullable = false)
 	private Boolean est_louable;
 	
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinTable(name = "exemplaire_jeu_location",
-        joinColumns = @JoinColumn(name = "exemplaire_jeu_id"),
-        inverseJoinColumns = @JoinColumn(name = "location_id"))
-	private List<Location> locations = new ArrayList<>();
+//    @ManyToMany(cascade = { CascadeType.PERSIST})
+//    @JoinTable(name = "exemplaire_jeu_location",
+//        joinColumns = @JoinColumn(name = "exemplaire_jeu_id"),
+//        inverseJoinColumns = @JoinColumn(name = "location_id"))
+//    @Builder.Default
+//	private List<Location> locations = new ArrayList<>();
     
     @ManyToOne
     @JoinColumn(name="modele_jeu_id", nullable=false)
