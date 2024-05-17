@@ -25,10 +25,6 @@ import lombok.ToString;
 @Entity
 @Table(name="exemplaire_jeu_location")
 public class ExemplaireJeuLocation {
-
-	@Id
-	@GeneratedValue()	
-	private Integer id;
 	
 	@Column(nullable = false)
 	private Date date_fin;
@@ -37,10 +33,12 @@ public class ExemplaireJeuLocation {
 	private Float prix_final;
 	
     @ManyToOne
+	@Id
     @JoinColumn(name = "exemplaire_jeu_id")
     private ExemplaireJeu exemplaire_jeu;
 
     @ManyToOne
+	@Id
     @JoinColumn(name = "location_id")
     private Location location;
 }

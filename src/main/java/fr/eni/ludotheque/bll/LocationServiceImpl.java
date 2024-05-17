@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.eni.ludotheque.bo.Client;
 import fr.eni.ludotheque.bo.ExemplaireJeu;
+import fr.eni.ludotheque.bo.ExemplaireJeuLocation;
 import fr.eni.ludotheque.bo.Location;
 import fr.eni.ludotheque.bo.Reservation;
+import fr.eni.ludotheque.dal.ExemplaireJeuLocationRepository;
 import fr.eni.ludotheque.dal.ExemplaireJeuRepository;
+import fr.eni.ludotheque.dal.LocationRepository;
 import fr.eni.ludotheque.dal.ReservationRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -19,6 +22,11 @@ public class LocationServiceImpl implements LocationService {
 	ReservationRepository reservationRepository;
 	@Autowired
 	ExemplaireJeuRepository exemplaireJeuRepository;
+	@Autowired
+	LocationRepository locationRepository;
+	@Autowired
+	ExemplaireJeuLocationRepository exemplaireJeuLocationRepository;
+	
 	@Override
 	@Transactional
 	public Reservation reserverExemplaires(List<ExemplaireJeu> exemplaires, Client client) {
@@ -49,15 +57,26 @@ public class LocationServiceImpl implements LocationService {
 		
 		//verif que dans location_exemplaire il n'est pas actuellement loué
 		
+		//verif qu'il y a entre 1 et 3 exemplaires max
+		
+		//verif que c'est des jeux differents dans les exemplaires
+		
 		//créer location && ajout des exemplaires dans la location
 		Location location = Location.builder()
 				.client(client)
-				.exemplaires_jeux(exemplaires)
 				.date_deb(new Date())
 				.est_paye(false)
 				.build();
-						
 		
+		locationRepository.save(location);
+		
+		for (ExemplaireJeu exemplaireJeu : exemplaires) {
+			ExemplaireJeuLocation exemplaireJeuLocation = ExemplaireJeuLocation.builder()
+					.exemplaire_jeu(exemplaireJeu)
+					.location(location)
+					.build();
+			exemplaireJeuLocationRepository.save(exemplaireJeuLocation);
+		}
 		return location;
 
 	}
