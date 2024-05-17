@@ -35,3 +35,4 @@ INSERT exemplaire_jeu (id,modele_jeu_id,code_barre,est_louable) VALUES (7,4,2001
 INSERT exemplaire_jeu (id,modele_jeu_id,code_barre,est_louable) VALUES (8,4,3001234567897,1)
 INSERT exemplaire_jeu (id,modele_jeu_id,code_barre,est_louable) VALUES (9,4,4001234567894,1)
 INSERT exemplaire_jeu (id,modele_jeu_id,code_barre,est_louable) VALUES (10,4,5001234567891,1)
+
