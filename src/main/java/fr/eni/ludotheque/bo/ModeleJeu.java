@@ -40,7 +40,7 @@ public class ModeleJeu {
 	private Float prix_location;
 	
     @ManyToMany()
-    @JoinTable(name = "model_jeu_genre",
+    @JoinTable(name = "modele_jeu_genre",
         joinColumns = @JoinColumn(name = "model_jeu_id"),
         inverseJoinColumns = @JoinColumn(name = "genre_id"))
 	private List<Genre> genres = new ArrayList<>();

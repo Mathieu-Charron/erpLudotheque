@@ -43,7 +43,7 @@ class ExemplaireJeuRepositoryTest {
 		
 		ModeleJeu model_jeu = ModeleJeu.builder()
 				.nom("jeuuu")
-				.genre(liste_genre)
+				.genres(liste_genre)
 				.prix_location(10.5f)
 				.build();
 		entityManager.persist(model_jeu);
@@ -79,7 +79,7 @@ class ExemplaireJeuRepositoryTest {
 		
 		ModeleJeu model_jeu = ModeleJeu.builder()
 				.nom("jeuuu")
-				.genre(liste_genre)
+				.genres(liste_genre)
 				.prix_location(10.5f)
 				.build();
 		entityManager.persist(model_jeu);
