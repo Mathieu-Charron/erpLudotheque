@@ -16,7 +16,7 @@ public class ModeleJeuServiceImpl implements ModeleJeuService {
 	}
 
 	public ModeleJeu ajouterModeleJeu(ModeleJeu modeleJeu) {
-		return this.modeleJeuRepository.create(modeleJeu);
+		return this.modeleJeuRepository.save(modeleJeu);
 	}
 
 	public Optional<ModeleJeu> lireModeleJeu(Integer id) {
@@ -28,7 +28,8 @@ public class ModeleJeuServiceImpl implements ModeleJeuService {
 	}
 
 	public ModeleJeu modifierModeleJeu(ModeleJeu modeleJeu, Integer id) {
-		return this.modeleJeuRepository.updateById(modeleJeu, id);
+//		return this.modeleJeuRepository.updateById(modeleJeu, id);
+		return null;
 	}
 
 	public void supprimerJeu(Integer id) {
